@@ -182,13 +182,19 @@ function init() {
 
 					mesh.material = material;
 
-				} else {
+				}
+
+				if ( mesh.material.name === 'Model001_Material004' ) {
 
 					mesh.material.transparent = true;
 
 				}
 
-				console.log(mesh)
+			}
+
+			if ( mesh.isLight ) {
+
+				mesh.parent.remove( mesh );
 
 			}
 
