@@ -157,8 +157,7 @@ function init() {
 	// that only renders shadows once we flip the `receiveShadow` property
 	shadowMesh = new THREE.Mesh(planeGeometry, new THREE.ShadowMaterial({
 		color: 0x111111,
-		opacity: 0.15,
-		depthTest: false
+		opacity: 0.15
 	}));
 	shadowMesh.receiveShadow = true;
 	scene.add(shadowMesh);
