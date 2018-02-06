@@ -167,35 +167,21 @@ function init() {
 
 		model = object;
 
-		object.children.forEach( function (mesh) {
+		object.traverse( function (mesh) {
 
 			if ( mesh.isMesh ) {
 
 				mesh.castShadow = true;
 				// mesh.receiveShadow = true;
 
-				if ( mesh.material.name === 'Model001_Material001' ||
-						mesh.material.name === 'Model001_Material002' ) {
-
-					var material = new THREE.MeshPhongMaterial( {
-						map: mesh.material.map,
-						specular: 0x888888,
-						skinning: true
-					} );
-
-					mesh.material = material;
-
-				} else {
-
-					mesh.material.transparent = true;
-
-				}
+				mesh.material.side = THREE.DoubleSide;
+				mesh.material.transparent = true;
 
 			}
 
 			if ( mesh.isLight ) {
 
-				mesh.parent.remove( mesh );
+				mesh.visible = false;
 
 			}
 

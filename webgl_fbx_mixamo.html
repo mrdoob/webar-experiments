@@ -163,7 +163,7 @@ function init() {
 
 		model = object;
 
-		object.children.forEach( function (mesh) {
+		object.traverse( function (mesh) {
 
 			if ( mesh.isMesh ) {
 
